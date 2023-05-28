@@ -67,24 +67,39 @@ const Edit = () => {
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Dept Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter DeptName"
+                            <Form.Select
+                                aria-label="Default select example"
                                 name="dept_name"
                                 value={deptInfo.dept_name}
                                 onChange={handleChange}
-                            />
+                            >
+                                <option>Select Department Name</option>
+                                <option
+                                    value="Google IT soln pvt name"
+                                >
+                                    Google IT soln pvt name
+                                </option>
+                                <option value="Ppangram">Ipangram</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="Wipro">Wipro</option>
+                                <option value="Wallmart">Wallmart</option>
+                            </Form.Select>
                         </Form.Group>
 
                         <Form.Group className="mb-3">
                             <Form.Label>Category Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter Category Name"
+                            <Form.Select
+                                aria-label="Default select example"
                                 name="category_name"
                                 value={deptInfo.category_name}
                                 onChange={handleChange}
-                            />
+                            >
+                                <option>Select Category Name</option>
+                                <option value="Hr">HR</option>
+                                <option value="It">IT</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Marketing">Marketing</option>
+                            </Form.Select>
                         </Form.Group>
 
                         <Form.Group className="mb-3">

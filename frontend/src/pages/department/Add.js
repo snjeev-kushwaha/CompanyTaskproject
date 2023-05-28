@@ -77,10 +77,10 @@ const Add = ({ DepartmentDataget }) => {
                 >
                   Google IT soln pvt name
                 </option>
-                <option value="ipangram">Ipangram</option>
-                <option value="facebook">Facebook</option>
-                <option value="wipro">Wipro</option>
-                <option value="wallmart">Wallmart</option>
+                <option value="Ipangram">Ipangram</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Wipro">Wipro</option>
+                <option value="Wallmart">Wallmart</option>
               </Form.Select>
             </Form.Group>
 
@@ -93,10 +93,10 @@ const Add = ({ DepartmentDataget }) => {
                 onChange={handleChange}
               >
                 <option>Select Category Name</option>
-                <option value="hr">HR</option>
-                <option value="it">IT</option>
-                <option value="sales">Sales</option>
-                <option value="marketing">Marketing</option>
+                <option value="Hr">HR</option>
+                <option value="It">IT</option>
+                <option value="Sales">Sales</option>
+                <option value="Marketing">Marketing</option>
               </Form.Select>
             </Form.Group>
 

@@ -8,6 +8,8 @@ import Add from './pages/department/Add'
 import View from './pages/department/View'
 import EmployeelistById from './pages/employee/EmployeelistById'
 import Edit from './pages/department/Edit';
+import Protected from './components/Protected';
+import ViewEmployee from './pages/employee/ViewEmployee'
 
 function App() {
   const location = useLocation()
@@ -17,12 +19,13 @@ function App() {
       {
         location.pathname === '/' ? (<Login />) : (
           <Routes>
-            <Route path='/' element={<Header />} />
+            <Route path='/' element={<Protected Component={Header} />} />
             <Route path='/register' element={<SignUp />} />
-            <Route path='/add' element={<Add />} />
-            <Route path='/edit' element={<Edit />} />
-            <Route path='/view' element={<View />} />
-            <Route path='/employeelistbyid' element={<EmployeelistById />} />
+            <Route path='/add' element={<Protected Component={Add} />} />
+            <Route path='/edit' element={<Protected Component={Edit} />} />
+            <Route path='/view' element={<Protected Component={View} />} />
+            <Route path='/employeelist' element={<Protected Component={EmployeelistById} />} />
+            <Route path='/viewemployee' element={<Protected Component={ViewEmployee} />} />
           </Routes>
         )
       }

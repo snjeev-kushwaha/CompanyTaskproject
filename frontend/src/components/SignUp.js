@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  MDBBtn,
   MDBContainer,
   MDBCard,
   MDBCardBody,
@@ -15,6 +14,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import config from '../config';
+import { Button } from 'react-bootstrap';
 
 function SignUp() {
   const navigate = useNavigate()
@@ -38,13 +38,33 @@ function SignUp() {
       'Content-Type': 'application/json'
     }
     const apiData = await axios.post(`${config.URL}/register`, signupInfo, headers)
-   
+
     if (apiData.data.status === 200) {
       toast.success("Successfully Register the User")
-      navigate('/login')
+      navigate('/')
     }
     else {
-      toast.error('Invalid credential')
+      if (signupInfo.firstname === "") {
+        toast.error('FullName field required')
+      }
+      else if (signupInfo.lastname === "") {
+        toast.error('LastName field required')
+      }
+      else if (signupInfo.gender === "") {
+        toast.error('Gender field required')
+      }
+      else if (signupInfo.email === "") {
+        toast.error('Email field required')
+      }
+      else if (signupInfo.password === "") {
+        toast.error('Password field required')
+      }
+      else if (signupInfo.hobbies === "") {
+        toast.error('Hobbies field required')
+      } else {
+        toast.success("Successfully Register the User")
+        navigate('/')
+      }
     }
   }
   return (
@@ -68,11 +88,11 @@ function SignUp() {
                       <h3 className="mb-4 text-uppercase fw-bold">Sign Up Page</h3>
                       <MDBRow>
                         <MDBCol md='6'>
-                          <MDBInput wrapperClass='mb-3' label='First Name' name='firstname' value={signupInfo.firstname} onChange={handleChange} size='lg' id='form1' type='text' />
+                          <MDBInput wrapperClass='mb-3' label='First Name' name='firstname' value={signupInfo.firstname} onChange={handleChange} size='lg' id='form1' type='text' required />
                         </MDBCol>
 
                         <MDBCol md='6'>
-                          <MDBInput wrapperClass='mb-3' label='Last Name' name='lastname' value={signupInfo.lastname} onChange={handleChange} size='lg' id='form2' type='text' />
+                          <MDBInput wrapperClass='mb-3' label='Last Name' name='lastname' value={signupInfo.lastname} onChange={handleChange} size='lg' id='form2' type='text' required />
                         </MDBCol>
 
                       </MDBRow>
@@ -87,6 +107,7 @@ function SignUp() {
                           inline
                           checked={signupInfo.gender === 'female'}
                           onChange={handleChange}
+                          required
                         />
                         <MDBRadio
                           name='gender'
@@ -96,15 +117,16 @@ function SignUp() {
                           inline
                           checked={signupInfo.gender === 'male'}
                           onChange={handleChange}
+                          required
                         />
                       </div>
 
-                      <MDBInput wrapperClass='mb-2' label='Email' name='email' value={signupInfo.email} onChange={handleChange} size='lg' id='form5' type='text' />
-                      <MDBInput wrapperClass='mb-2' label='Password' name='password' value={signupInfo.password} onChange={handleChange} size='lg' id='form4' type='text' />
-                      <MDBInput wrapperClass='mb-2' label='Hobbies' name='hobbies' value={signupInfo.hobbies} onChange={handleChange} size='lg' id='form6' type='text' />
+                      <MDBInput wrapperClass='mb-2' label='Email' name='email' value={signupInfo.email} onChange={handleChange} size='lg' id='form5' type='text' required />
+                      <MDBInput wrapperClass='mb-2' label='Password' name='password' value={signupInfo.password} onChange={handleChange} size='lg' id='form4' type='text' required />
+                      <MDBInput wrapperClass='mb-2' label='Hobbies' name='hobbies' value={signupInfo.hobbies} onChange={handleChange} size='lg' id='form6' type='text' required />
 
                       <div className="justify-content-end pt-1">
-                        <MDBBtn className='ms-2' color='warning' size='lg' onClick={submitData}>Submit</MDBBtn>
+                        <Button className='ms-2' onClick={submitData}>Submit</Button>
                       </div>
 
                     </MDBCardBody>

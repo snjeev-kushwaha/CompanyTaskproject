@@ -39,8 +39,8 @@ let login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const sqlQuery = `SELECT r.rolename,e.password, e.firstname,e.lastname,e.email,e.gender,e.hobbies FROM employee e JOIN role_assign ra ON e.emp_id = ra.emp_id JOIN role r ON ra.roleid = r.roleid WHERE e.email = ?`;
-    await connection.query(sqlQuery, email, async (err, result) => {
     
+    await connection.query(sqlQuery, email, async (err, result) => {
       if (err) {
         return res.json({ status: 400, response: err.sqlMessage });
       }
@@ -57,7 +57,7 @@ let login = async (req, res) => {
           { emp_id: result[0].emp_id, rolename: result[0].rolename },
           process.env.SECRET_KEY
         );
-      } else if(result[0].rolename === "employee") {
+      } else if (result[0].rolename === "employee") {
         token = await jwt.sign(
           { emp_id: result[0].emp_id, rolename: result[0].rolename },
           process.env.SECRET_KEY
@@ -165,7 +165,7 @@ const viewEmployee = async (req, res) => {
 const deleteRole = async (req, res) => {
   try {
     const roleid = req.params.roleid;
-   
+
     const sqlQuery = `DELETE FROM role_assign WHERE roleid =${roleid}`;
     await connection.query(sqlQuery, (err, result) => {
       if (err) {
