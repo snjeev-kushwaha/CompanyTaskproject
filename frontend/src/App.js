@@ -1,14 +1,14 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Routes, Route, useLocation } from 'react-router-dom'
-import Login from './components/Login'
-import SignUp from './components/SignUp'
+import Login from './auth/Login'
+import SignUp from './auth/SignUp'
 import Header from './components/Header'
 import Add from './pages/department/Add'
 import View from './pages/department/View'
 import EmployeelistById from './pages/employee/EmployeelistById'
 import Edit from './pages/department/Edit';
-import Protected from './components/Protected';
+import Protected from './auth/Protected';
 import ViewEmployee from './pages/employee/ViewEmployee'
 
 function App() {

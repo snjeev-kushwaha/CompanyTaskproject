@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, Container, Button, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, Container, Button } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Header = () => {
@@ -22,9 +22,9 @@ const Header = () => {
                                 style={{ maxHeight: '100px' }}
                                 navbarScroll
                             >
-                                <Nav.Link href="/employeelist">Employee List</Nav.Link>
-                                <Nav.Link href="/viewemployee">View Employee</Nav.Link>
-                                <Nav.Link href="/view">View Department</Nav.Link>
+                                <Link to="/employeelist" style={{ textDecoration: "none" }}>Employee List</Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <Link to="/viewemployee" style={{ textDecoration: "none" }}>View Employee</Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <Link to="/view" style={{ textDecoration: "none" }}>View Department</Link>
                             </Nav>
                         ) : (<Link to='/login' style={{ textDecoration: "none" }}>Login</Link>)}
                         {localStorage.getItem('token') ? (<Button onClick={logOut} style={{ textDecoration: "none" }}>Logout</Button>) :

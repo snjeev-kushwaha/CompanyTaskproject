@@ -76,7 +76,7 @@ const ViewEmployee = () => {
   return (
     <>
       <Header />
-      <button type="button" className="btn btn-primary mb-2 mt-3" style={{marginLeft:"110px"}}><UserAddOutlined /><AddEmployee displayEmployee={displayEmployee} /></button>
+      <button type="button" className="btn btn-primary mb-2 mt-4" style={{marginLeft:"110px"}}><UserAddOutlined /><AddEmployee displayEmployee={displayEmployee} /></button>
       <Table striped bordered hover className='container'>
         <thead>
           <tr>

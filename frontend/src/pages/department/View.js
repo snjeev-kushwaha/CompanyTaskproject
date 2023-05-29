@@ -74,14 +74,14 @@ const ViewManager = () => {
   return (
     <>
       <Header />
-      <div className="container overflow-hidden">
+      <div className="container overflow-hidden mt-3">
         <div className="row gy-5">
-          <div className="col-5">
+          <div className="col-6">
             <div className="p-3">
               <button type="button" className="btn btn-primary mb-2"><UserAddOutlined /><Add DepartmentDataget={departmentDataget} /></button>
             </div>
           </div>
-          <div className="col-5">
+          <div className="col-6">
             <div className="p-3">
               <input
                 type="search"
